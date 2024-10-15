@@ -20,9 +20,9 @@ app.add_middleware(
 )
 
 # データベース接続文字列
-DATABASE_URL1 = "mysql://admin:Seigakushakorea0308(!@localhost/boardDB1_bds4"
-DATABASE_URL2 = "mysql://admin:Seigakushakorea0308(!@localhost/boardDB2_bds4"
-DATABASE_URL3 = "mysql://admin:Seigakushakorea0308(!@localhost/boardDB3_bds4"
+DATABASE_URL1 = "mysql://セキュリティのために削除しました。/boardDB1_bds4"
+DATABASE_URL2 = "mysql://セキュリティのために削除しました。/boardDB2_bds4"
+DATABASE_URL3 = "mysql://セキュリティのために削除しました。/boardDB3_bds4"
 
 # データベースオブジェクトの生成
 database1 = Database(DATABASE_URL1)
