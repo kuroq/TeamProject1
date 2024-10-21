@@ -2,13 +2,13 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>掲示板 - バデソン</title>
+    <title>掲示板 - ベデソン</title>
     <style>
-        /* ページレイアウトとスタイルの定義 */
+        /* ページのレイアウトとスタイルの定義 */
         body {
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* 中央揃えではなく、上揃え */
+            align-items: flex-start; /* 中央揃えではなく、上部揃え */
             height: 100vh;
             margin: 0;
             background: linear-gradient(to right, #FFEEAD, #FFDAC1); /* 背景グラデーション */
@@ -20,28 +20,28 @@
             width: 90%;
             max-width: 1200px; /* 最大幅設定 */
             max-height: 90vh; /* 最大高さ設定 */
-            overflow-y: auto; /* コンテンツが多い場合は縦スクロールを有効にする */
+            overflow-y: auto; /* コンテンツが多い場合、縦スクロールを有効 */
             background: white;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* シャドウ効果 */
-            border: 2px solid #FFB347; /* ボーダー色 */
+            border: 2px solid #FFB347; /* 枠線の色 */
         }
 
         h1, h2 {
             text-align: center; /* タイトルを中央揃え */
-            color: #FF6F61; /* タイトル色 */
-            margin: 0 0 20px 0; /* 下部の余白追加 */
+            color: #FF6F61; /* タイトルの色 */
+            margin: 0 0 20px 0; /* 下部余白を追加 */
         }
 
         h1 {
-            font-size: 2.5em; /* タイトルフォントサイズ調整 */
+            font-size: 2.5em; /* タイトルのフォントサイズ調整 */
             line-height: 1.2; /* 行間調整 */
         }
 
         h1::after {
             content: '📋'; /* アイコン追加 */
-            font-size: 1.5em; /* アイコンサイズ */
+            font-size: 1.5em; /* アイコンのサイズ */
         }
 
         h2[data-icon='personal']::after {
@@ -57,43 +57,42 @@
         }
 
         .form-group {
-            display: flex; /* 入力フィールドを横に配置 */
-            overflow-x: auto; /* 横スクロールを有効にする */
-            white-space: nowrap; /* 改行を防ぐ */
-            margin-bottom: 20px; /* 下部の余白 */
+            display: flex; /* 入力フィールドを横並びに */
+            overflow-x: auto; /* 横スクロールを有効 */
+            white-space: nowrap; /* 改行防止 */
+            margin-bottom: 20px; /* 下部余白 */
         }
 
         .form-group input {
             flex: 0 0 auto; /* フィールド幅固定 */
             margin: 5px; /* フィールド間の間隔 */
             padding: 10px; /* 内部余白 */
-            border: 1px solid #ccc; /* ボーダー色 */
-            border-radius: 5px; /* 角を丸くする */
-            box-sizing: border-box; /* ボックスサイズ計算 */
+            border: 1px solid #ccc; /* 枠線の色 */
+            border-radius: 5px; /* 角を丸く */
+            box-sizing: border-box; /* ボックスのサイズ計算 */
         }
 
         .buttons {
-            text-align: center; /* ボタン中央揃え */
-            margin-top: 20px; /* 上部の余白 */
+            text-align: center; /* ボタンを中央揃え */
+            margin-top: 20px; /* 上部余白 */
         }
 
         .buttons button {
             padding: 10px 20px; /* ボタン内部余白 */
             margin: 5px; /* ボタン間の間隔 */
-            border: none; /* ボーダーなし */
-            border-radius: 20px; /* 角を丸くする */
+            border: none; /* 枠線なし */
+            border-radius: 20px; /* 角を丸く */
             background-color: #FF6F61; /* 背景色 */
             color: white; /* テキスト色 */
             cursor: pointer; /* ポインターカーソル */
-            transition: background-color 0.3s, transform 0.3s; /* 背景色とサイズ変化アニメーション */
+            transition: background-color 0.3s, transform 0.3s; /* 背景色とサイズ変化のアニメーション */
         }
 
         .buttons button:hover {
             background-color: #FFB347; /* ホバー時の背景色 */
-            transform: scale(1.1); /* ホバー時のボタン拡大 */
+            transform: scale(1.1); /* ホバー時にボタン拡大 */
         }
-        
-        /* 追加ボタン */
+        /* 8/8 追加ボタン~~~~~~~~~ */
         .custom-button {
             background-color: #4CAF50; /* 緑色の背景 */
             border: none;
@@ -107,20 +106,19 @@
             cursor: pointer;
             border-radius: 5px;
         }
-        
         .custom-button:hover {
             background-color: #45a049; /* ホバー時の色変更 */
         }
 
         table {
             width: 100%; /* テーブル幅100% */
-            border-collapse: collapse; /* セル境界を結合 */
-            margin-top: 20px; /* 上部の余白 */
+            border-collapse: collapse; /* セル境界を統合 */
+            margin-top: 20px; /* 上部余白 */
             table-layout: fixed; /* テーブルレイアウト固定 */
         }
 
         table, th, td {
-            border: 1px solid #ccc; /* ボーダー色 */
+            border: 1px solid #ccc; /* 枠線の色 */
         }
 
         th, td {
@@ -135,7 +133,7 @@
         }
 
         th.message-id, td.message-id {
-            width: 60px; /* メッセージID列幅 */
+            width: 60px; /* Message ID列幅 */
         }
 
     </style>
@@ -145,18 +143,18 @@
 <div class="container">
     <h1>掲示板</h1>
     <div class="form-group">
-        <input type="text" id="purposeIdx" placeholder="目的タグ"> 
+        <input type="text" id="purposeIdx" placeholder="目的タグ"> <!--하아  이게 5/3 오후 4시 수정 1번-->
         <input type="text" id="message" placeholder="メッセージ">
         <input type="text" id="mean" placeholder="意味">
         <input type="text" id="meanAddPhrase" placeholder="意味追加フレーズ">
-        <input type="text" id="meanAddMor" placeholder="意味追加モア">
-        <input type="text" id="meanAddAll" placeholder="意味追加すべて">
+        <input type="text" id="meanAddMor" placeholder="意味追加モル">
+        <input type="text" id="meanAddAll" placeholder="意味追加全体">
         <input type="text" id="runningTime" placeholder="実行時間">
         <input type="text" id="yesValue" placeholder="はいの値">
         <input type="text" id="noValue" placeholder="いいえの値">
     </div> 
     <div class="buttons">
-        <button id="registerButton">登録</button> 
+        <button id="registerButton">登録</button> <!-- ボタンクリックイベント -->
         <button id="refreshButton">再読み込み</button>
     </div>
 
@@ -169,14 +167,14 @@
                 <th>メッセージ</th>
                 <th>意味</th>
                 <th>意味追加フレーズ</th>
-                <th>意味追加モア</th>
-                <th>意味追加すべて</th>
+                <th>意味追加モル</th>
+                <th>意味追加全体</th>
                 <th>実行時間</th>
                 <th>送信日</th>
                 <th>受信日</th>
                 <th>はいの値</th>
                 <th>いいえの値</th>
-                <th>はいかいいえ</th>
+                <th>はいまたはいいえ</th>
             </tr>
         </thead>
         <tbody id="personalData">
