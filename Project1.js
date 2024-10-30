@@ -39,7 +39,7 @@ async function registerData() {
 
     try {
         // サーバーにデータを送信
-        const response = await fetch('http://3.38.151.167:8001/messages/', {
+        const response = await fetch('http://43.201.226.38:8001/messages/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ function confirmRefresh() {
 async function loadTeam2Data() {
     try {
         // チーム2データ要求
-        const response = await fetch('http://3.38.151.167:8001/messages2_short/');
+        const response = await fetch('http://43.201.226.38:8001/messages2_short/');
         if (response.ok) {
             const messages = await response.json();
             const tableBody = document.querySelector('#team2Data tbody');
@@ -106,7 +106,7 @@ async function loadTeam2Data() {
 async function loadPersonalData() {
     try {
         // 個人データ要求
-        const response = await fetch('http://3.38.151.167:8001/fimessages/');
+        const response = await fetch('http://43.201.226.38:8001/fimessages/');
         if (response.ok) {
             const messages = await response.json();
             const tableBody = document.getElementById('personalData'); // 確定済み
@@ -130,7 +130,8 @@ async function loadPersonalData() {
                         sendButton.textContent = "メッセージ送信";
                         sendButton.onclick = async () => {
                             try {
-                                const sendResponse = await fetch(`http://3.38.151.167:8001/messages/${message.message_id}/update_send_date`, {
+                                // const sendResponse = await fetch(`http://43.201.226.38:8001/${message.message_id}/update_send_date`, {
+                                const sendResponse = await fetch(`http://43.201.226.38:8001/messages/${message.message_id}/update_send_date`, {
                                     method: 'PUT'
                                 });
                                 if (sendResponse.ok) {
@@ -154,7 +155,7 @@ async function loadPersonalData() {
                 tableBody.appendChild(row);
 
                 // answermessagesを呼び出し
-                const answerResponse = await fetch(`http://3.38.151.167:8001/awmessages/${message.message_id}`);
+                const answerResponse = await fetch(`http://43.201.226.38:8001/awmessages/${message.message_id}`);
                 if (answerResponse.ok) {
                     const answerMessages = await answerResponse.json();
                     for (const answermessage of answerMessages) {
@@ -194,7 +195,7 @@ async function loadPersonalData() {
 async function loadAllData() {
     try {
         // 全データ要求
-        const response = await fetch('http://3.38.151.167:8001/messages3_short/');
+        const response = await fetch('http://43.201.226.38:8001/messages3_short/');
         if (response.ok) {
             const messages = await response.json();
             const tableBody = document.querySelector('#allData tbody');
